@@ -48,6 +48,7 @@ function_map={
 async def getHTML(URL):
     asession = AsyncHTMLSession()
     res = await asession.get(URL)
+    # await res.html.arender()
     if res is None:
         raise ValueError("RendererError occurred")
     return res
@@ -64,7 +65,7 @@ def shaping(page_data,format):
     soup_main = s2sArray_find_all(soup,style_main)[style_main["Num"]]
     if soup_main is None:
         raise ValueError("Main containts is None. Please check IdentifyMethod and value in Format-Main.")
-    
+
     # Extract containts per anime title
     style_item = format["Items"]
     soup_items_array = s2sArray_find_all(soup_main,style_item)
@@ -92,20 +93,20 @@ def shaping(page_data,format):
             
             soup_param=s2sArray_find_all(soup_item, style_feature)[style_feature["Num"]]
             if soup_param is None:
-                print(feature["FeatureName"]," containts is None. Please check IdentifyMethod and value in Format-Feature.")
+                print(style_feature["FeatureName"]," containts is None. Please check IdentifyMethod and value in Format-Feature.")
                 add_list[0].append("")
                 continue
             
             # Extract text
             param = soup_param.text
             # Shaping if extra processes are needed
-            if feature["ShapingFunction"] in ["","default"]:
+            if style_feature["ShapingFunction"] in ["","default"]:
                 pass
             else:
-                param = function_map[feature["ShapingFunction"]](param,i)
+                param = function_map[style_feature["ShapingFunction"]](param,i)
             if param is None:
-                raise ValueError(feature["FeatureName"]," containts is None. Please check IdentifyMethod, Class, ShapingFunction value in Format-Feature.")
-                
+                raise ValueError(style_feature["FeatureName"]," containts is None. Please check IdentifyMethod, Class, ShapingFunction value in Format-Feature.")
+            
             add_list[0].append(param)
 
         # Merge add_list to dataframe
