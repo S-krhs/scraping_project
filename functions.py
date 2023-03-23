@@ -63,13 +63,13 @@ def shaping(page_data,format):
     style_main = format["Main"]
     soup_main = s2sArray_find_all(soup,style_main)[style_main["Num"]]
     if soup_main is None:
-        raise ValueError("Main containts is None. Please check IdentifyMethod and Class value in Format-Main.")
+        raise ValueError("Main containts is None. Please check IdentifyMethod and value in Format-Main.")
     
     # Extract containts per anime title
     style_item = format["Items"]
     soup_items_array = s2sArray_find_all(soup_main,style_item)
     if soup_items_array is None:
-        raise ValueError("Animes containts is None. Please check IdentifyMethod and Class value in Format-Animes.")
+        raise ValueError("Items containts is None. Please check IdentifyMethod and value in Format-Items.")
     
     # Create dataframe
     columns=["Date","Datetime"]
@@ -92,7 +92,7 @@ def shaping(page_data,format):
             
             soup_param=s2sArray_find_all(soup_item, style_feature)[style_feature["Num"]]
             if soup_param is None:
-                print(feature["FeatureName"]," containts is None. Please check IdentifyMethod and Class value in Format-Feature.")
+                print(feature["FeatureName"]," containts is None. Please check IdentifyMethod and value in Format-Feature.")
                 add_list[0].append("")
                 continue
             

@@ -1,2 +1,3 @@
 # scraping_project
-# scraping_project
+リスト形式のデータをスクレイピングで取得するためのソースコードです。<br>
+jsonファイルで定めた特徴量を各アイテムごとに抜き出し、DataFrameに格納します。戻り値はJSON形式に変換しています。
