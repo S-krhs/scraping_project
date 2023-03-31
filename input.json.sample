@@ -1,6 +1,8 @@
 {
     "PageName":"/*ページ名*/",
     "SheetId":"/*スプレッドシートID*/",
+    "Timeframe":"night /* midnight/morning/afternoon/night */",
+    "IsSelenium" : false,
     "Format":{
         "URL":"/*URL*/",
         "Main":{
