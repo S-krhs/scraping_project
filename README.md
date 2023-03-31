@@ -9,4 +9,4 @@ GASのリポジトリは[こちら](https://github.com/S-krhs/scraping_project_g
 signal only works in main thread of the main interpreter
 ```
 Flask関連のエラーだと思われるので、CloudRunを使用するなど自由度の高い環境で動かすことで解決できると思います。今回は動的なレンダリングが必要なサイトが無かったためこの状態でデプロイしています。<br>
-レンダリングが必要になった場合はSeleniumを利用したものを改めて作成する予定です。
+動的なレンダリングが必要になった場合はブラウジングにSeleniumを利用したものを改めて作成する予定です。
