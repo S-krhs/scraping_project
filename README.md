@@ -1,4 +1,4 @@
-# scraping_project
+# Google Cloud Functionsでスクレイピング
 リスト形式のデータをスクレイピングで取得するためのソースコードです。<br>
 jsonファイルで定めた特徴量を各アイテムごとに抜き出し、DataFrameに格納します。json形式でのhttpリクエストを受け取り、json形式に変換した配列を返します。
 そのままCloud FunctionsにデプロイすればGASに接続しスプレッドシートへ格納することが出来ます。<br>
