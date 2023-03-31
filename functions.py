@@ -48,7 +48,7 @@ function_map={
 async def getHTML(URL):
     asession = AsyncHTMLSession()
     res = await asession.get(URL)
-    # await res.html.arender()
+    # await res.html.arender() <- not work on cloudfunctions
     if res is None:
         raise ValueError("RendererError occurred")
     return res
