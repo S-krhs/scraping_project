@@ -2,3 +2,4 @@ __pycache__/
 venv/
 test_input/
 test.py
+input.json.sample
